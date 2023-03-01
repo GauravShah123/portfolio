@@ -1,18 +1,30 @@
-// Parallax Effect
+//Mouse
+const blob = document.getElementById("mouse-blob");
+document.body.onpointermove = event => {
+    const { clientX, clientY } = event;
+    let yPosition = clientY;
+    if (yPosition + 50 > window.innerHeight) {
+        yPosition = window.innerHeight - 50;
+    }
+    blob.animate({
+        left: `${clientX}px`,
+        top: `${yPosition}px`
+    }, { duration: 3000, fill: "forwards" });
+}
 
 window.addEventListener("scroll", function (e) {
-    const target = document.querySelector(".h-cursiveG");
-    var scrolled = window.pageYOffset;
-    var rate = scrolled * 0.4;
-    target.style.transform = "translate3d(0px, " + rate + "px, " + rate + "px)";
-  });
-  
-  window.addEventListener("scroll", function (e) {
-    const target = document.querySelector(".header > div");
-    var scrolled = window.pageYOffset;
-    var rate = scrolled * 0.5;
+    if (window.pageYOffset > 40) {
+        document.querySelector(".navBar").classList.add("shadow");
+    }else{
+        document.querySelector(".navBar").classList.remove("shadow");
+    }
+});
 
-    target.style.transform =
-      "translate3d(0px, -" + rate + "px, 0px) translate(-50%, -50%)";
-  });
-  
+// document.getElementById("investmint").addEventListener("mousemove", function(e){
+//     console.log(e);
+//     const image = document.getElementById("investmintImg");
+//     image.animate({
+//         left: `${e.clientX}px`,
+//         top: `${e.clientY}px`
+//     }, { duration: 0, fill: "forwards" });
+// })
