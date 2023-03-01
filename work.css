@@ -74,3 +74,11 @@ h2{
 .work:hover .hoverImg{
     opacity: 1;
 }
+
+.byLine {
+    font-size: 1rem;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+}
